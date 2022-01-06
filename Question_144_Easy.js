@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+// 144. 二叉树的前序遍历
 
 // Done
 
@@ -14,16 +15,16 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function(root) {
-  let array = []
+var preorderTraversal = function (root) {
+  let array = [];
   const preTraversal = (root) => {
-      if(!root){
-          return 
-      }
-      array.push(root.val)
-      preTraversal(root.left)
-      preTraversal(root.right)
-  }
-  preTraversal(root)
-  return array
+    if (!root) {
+      return;
+    }
+    array.push(root.val);
+    preTraversal(root.left);
+    preTraversal(root.right);
+  };
+  preTraversal(root);
+  return array;
 };

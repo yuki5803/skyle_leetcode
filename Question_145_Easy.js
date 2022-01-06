@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
+// 145. 二叉树的后序遍历
 
 // Done
 
@@ -14,16 +15,16 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var postorderTraversal = function(root) {
-  const arr = []
+var postorderTraversal = function (root) {
+  const arr = [];
   const postTraversal = (root) => {
-      if(!root){
-          return 
-      }
-      postTraversal(root.left)
-      postTraversal(root.right)
-      arr.push(root.val)
-  }
-  postTraversal(root)
-  return arr
+    if (!root) {
+      return;
+    }
+    postTraversal(root.left);
+    postTraversal(root.right);
+    arr.push(root.val);
+  };
+  postTraversal(root);
+  return arr;
 };

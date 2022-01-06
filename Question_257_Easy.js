@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/binary-tree-paths/
+// 257. 二叉树的所有路径
 
 // Done
 
@@ -14,21 +15,21 @@
  * @param {TreeNode} root
  * @return {string[]}
  */
-var binaryTreePaths = function(root) {
-  const resultArr = []
-  const dfs = (root,path) => {
-      if(!root.left && !root.right){
-          resultArr.push(path + `${root.val}`)
-          return
-      }
-      path += `${root.val}->`
-      if(root.left){
-          dfs(root.left,path)
-      }
-      if(root.right){
-          dfs(root.right,path)
-      }
-  }
-  dfs(root,'')
-  return resultArr
+var binaryTreePaths = function (root) {
+  const resultArr = [];
+  const dfs = (root, path) => {
+    if (!root.left && !root.right) {
+      resultArr.push(path + `${root.val}`);
+      return;
+    }
+    path += `${root.val}->`;
+    if (root.left) {
+      dfs(root.left, path);
+    }
+    if (root.right) {
+      dfs(root.right, path);
+    }
+  };
+  dfs(root, "");
+  return resultArr;
 };

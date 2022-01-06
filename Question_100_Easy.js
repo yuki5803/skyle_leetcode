@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/same-tree/
+// 100. 相同的树
 
 // Done
 
@@ -15,15 +16,15 @@
  * @param {TreeNode} q
  * @return {boolean}
  */
-var isSameTree = function(p, q,res = false) {
+var isSameTree = function (p, q, res = false) {
   //
-  if(!p && !q){
-      return true
+  if (!p && !q) {
+    return true;
   }
-  if((p === null && q !== null) || (p !== null && q === null)){
-      return false
+  if ((p === null && q !== null) || (p !== null && q === null)) {
+    return false;
   }
-  if(p.val !== q.val)return false
-  res = isSameTree(p.left,q.left) && isSameTree(p.right,q.right)
-  return res 
+  if (p.val !== q.val) return false;
+  res = isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+  return res;
 };

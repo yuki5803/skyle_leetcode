@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/sum-of-left-leaves/
+// 404. 左叶子之和
 
 // Done
 
@@ -14,20 +15,20 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var sumOfLeftLeaves = function(root) {
-  let count = 0
-  const dfs = (root,left = false) => {
-      if(!root.left && !root.right && left){
-          count += root.val
-          return 
-      }
-      if(root.left){
-          dfs(root.left,true)
-      }
-      if(root.right){
-          dfs(root.right)
-      }
-  }
-  dfs(root)
-  return count
+var sumOfLeftLeaves = function (root) {
+  let count = 0;
+  const dfs = (root, left = false) => {
+    if (!root.left && !root.right && left) {
+      count += root.val;
+      return;
+    }
+    if (root.left) {
+      dfs(root.left, true);
+    }
+    if (root.right) {
+      dfs(root.right);
+    }
+  };
+  dfs(root);
+  return count;
 };

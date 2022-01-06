@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
+// 111. 二叉树的最小深度
 
 // Done
 
@@ -14,27 +15,27 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var minDepth = function(root) {
-  if(!root){
-      return 0
+var minDepth = function (root) {
+  if (!root) {
+    return 0;
   }
-  let queue = []
-  let minDep = 1
-  queue.push(root)
-  while(queue.length !== 0){
-      for(let i = 0;i < queue.length;i++){
-          let node = queue.shift()
-          if(!node.left && !node.right){
-              return minDep
-          }
-          if(node.left){
-              queue.push(node.left)
-          }
-          if(node.right){
-              queue.push(node.right)
-          }
+  let queue = [];
+  let minDep = 1;
+  queue.push(root);
+  while (queue.length !== 0) {
+    for (let i = 0; i < queue.length; i++) {
+      let node = queue.shift();
+      if (!node.left && !node.right) {
+        return minDep;
       }
-      minDep++
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+    minDep++;
   }
-  return minDep
+  return minDep;
 };

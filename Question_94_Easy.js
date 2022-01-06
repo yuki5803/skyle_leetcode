@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
+// 94. 二叉树的中序遍历
 
 // Done
 
@@ -14,16 +15,16 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
-  let out = []
+var inorderTraversal = function (root) {
+  let out = [];
   const getInorderTraversal = (root) => {
-      if(!root){
-          return 
-      }
-      getInorderTraversal(root.left)
-      out.push(root.val)
-      getInorderTraversal(root.right)
-  }
-  getInorderTraversal(root)
-  return out
+    if (!root) {
+      return;
+    }
+    getInorderTraversal(root.left);
+    out.push(root.val);
+    getInorderTraversal(root.right);
+  };
+  getInorderTraversal(root);
+  return out;
 };

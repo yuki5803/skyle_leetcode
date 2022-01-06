@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/path-sum/
+// 112. 路径总和
 
 // Done
 
@@ -15,26 +16,26 @@
  * @param {number} targetSum
  * @return {boolean}
  */
-var hasPathSum = function(root, targetSum) {
-  if(!root){
-      return false
+var hasPathSum = function (root, targetSum) {
+  if (!root) {
+    return false;
   }
-  const dfs = (root,targetSum) => {
-      let sum = targetSum - root.val
-      if(!root.left && !root.right){
-          return sum === 0
+  const dfs = (root, targetSum) => {
+    let sum = targetSum - root.val;
+    if (!root.left && !root.right) {
+      return sum === 0;
+    }
+    if (root.left) {
+      if (dfs(root.left, sum)) {
+        return true;
       }
-      if(root.left){
-         if(dfs(root.left,sum)){
-             return true
-         }
+    }
+    if (root.right) {
+      if (dfs(root.right, sum)) {
+        return true;
       }
-      if(root.right){
-          if(dfs(root.right,sum)){
-              return true
-          }
-      }
-      return false
-  }
-  return dfs(root,targetSum)
+    }
+    return false;
+  };
+  return dfs(root, targetSum);
 };

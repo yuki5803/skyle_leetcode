@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/invert-binary-tree/
+// 226. 翻转二叉树
 
 // Done
 
@@ -14,23 +15,23 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-  const arr = []
-  arr.push(root)
-  while(arr.length !== 0){
-      let size = arr.length
-      for(i=0;i<size;i++){
-          let temp
-          node = arr.shift()
-          if(!node){
-              continue
-          }
-          temp = node.left
-          node.left = node.right
-          node.right = temp
-          arr.push(node.left)
-          arr.push(node.right)
-      }    
+var invertTree = function (root) {
+  const arr = [];
+  arr.push(root);
+  while (arr.length !== 0) {
+    let size = arr.length;
+    for (i = 0; i < size; i++) {
+      let temp;
+      node = arr.shift();
+      if (!node) {
+        continue;
+      }
+      temp = node.left;
+      node.left = node.right;
+      node.right = temp;
+      arr.push(node.left);
+      arr.push(node.right);
+    }
   }
-  return root
+  return root;
 };
