@@ -1,0 +1,27 @@
+{
+  "name": "skyle_leetcode",
+  "version": "1.0.0",
+  "description": "my leetcode question repository",
+  "main": "Question_100_Easy.js",
+  "scripts": {
+    "prepare": "husky install",
+    "update readme": "node writeReadMe.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuki5803/skyle_leetcode.git"
+  },
+  "keywords": [
+    "leetcode"
+  ],
+  "author": "skyle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuki5803/skyle_leetcode/issues"
+  },
+  "homepage": "https://github.com/yuki5803/skyle_leetcode#readme",
+  "devDependencies": {
+    "husky": "^7.0.4"
+  }
+}
