@@ -29,7 +29,7 @@ questionFiles.forEach((filePath) => {
         `[${text.replace(
           "// ",
           ""
-        )}](https://github.com/yuki5803/skyle_leetcode/blob/master/leetcode/${filePath})\n`
+        )}](https://github.com/yuki5803/skyle_leetcode/blob/master/leetcode/${filePath})  \n`
       );
     }
     time++;
