@@ -19,7 +19,6 @@ const questionFiles = allFiles
 let writeText = "";
 
 new Promise((resolve) => {
-  let time = 1
   questionFiles.forEach((filePath) => {
     const title = fs.readFileSync("./leetcode/" + filePath, 'utf-8').split(/\r?\n/)[1]
     writeText += `[${title.replace(
