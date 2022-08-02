@@ -18,85 +18,18 @@ const questionFiles = allFiles
 
 let writeText = "";
 
-questionFiles.forEach((filePath) => {
-  console.log("writing");
-  const readStream = fs.createReadStream("./leetcode/" + filePath);
-  const rl = readLine.createInterface({ input: readStream });
-  let time = 1;
-
-  rl.on("line", (line) => {
-    let text = line;
-    if (time > 2) {
-      return;
-    }
-    if (time === 2) {
-      writeText += `[${text.replace(
-        "// ",
-        ""
-      )}](https://github.com/yuki5803/skyle_leetcode/blob/master/leetcode/${filePath})  \n`;
-    }
-    time++;
+new Promise((resolve) => {
+  let time = 1
+  questionFiles.forEach((filePath) => {
+    const title = fs.readFileSync("./leetcode/" + filePath, 'utf-8').split(/\r?\n/)[1]
+    writeText += `[${title.replace(
+      "// ",
+      ""
+    )}](https://github.com/yuki5803/skyle_leetcode/blob/master/leetcode/${filePath})  \n`
   });
+  resolve()
+}).then(() => {
+  fs.writeFileSync("./README.md", writeText);
+  console.log("Done!!!");
+  console.log(writeText);
 });
-
-console.log("Done!!!");
-
-fs.writeFileSync("./README.md", writeText);
-
-// const writeReadMe = async (fileIndex = 0) => {
-//   const filePath = questionFiles[fileIndex];
-//   const readStream = fs.createReadStream("./leetcode/" + filePath);
-//   const rl = readLine.createInterface({ input: readStream });
-//   let time = 1;
-//   let isCom = false;
-
-//   rl.on("line", (line) => {
-//     let text = line;
-//     if (time > 2) {
-//       return;
-//     }
-//     if (time === 2) {
-//       fs.writeFileSync(
-//         "./README.md",
-//         `[${text.replace(
-//           "// ",
-//           ""
-//         )}](https://github.com/yuki5803/skyle_leetcode/blob/master/leetcode/${filePath})  \n`
-//       );
-//     }
-//     time++;
-//   });
-//   if (fileIndex < questionFiles.length - 1 && !isCom) {
-//     writeReadMe(fileIndex + 1);
-//   }
-// };
-
-// writeReadMe();
-// new Promise((resolve, rejects) => {
-//   resolve(writeReadMe());
-// }).then((value) => {
-//   console.log(value);
-//   readMe.end("End");
-// });
-
-// questionFiles.forEach((filePath) => {
-//   const readStream = fs.createReadStream("./leetcode/" + filePath);
-//   const rl = readLine.createInterface({ input: readStream });
-//   let time = 1;
-//   rl.on("line", (line) => {
-//     let text = line;
-//     if (time > 2) {
-//       return;
-//     }
-//     if (time === 2) {
-//       readMe.write(
-//         `[${text.replace(
-//           "// ",
-//           ""
-//         )}](https://github.com/yuki5803/skyle_leetcode/blob/master/leetcode/${filePath})  \n`,
-//         () => console.log(time, line)
-//       );
-//     }
-//     time++;
-//   });
-// });
